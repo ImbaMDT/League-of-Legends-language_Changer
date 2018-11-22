@@ -6,7 +6,7 @@ import yaml
 
 # Funktionen definieren
 
-def changeLanguage(sprache):
+def changeLanguage():
 
     # finding Updated Folder
     list_of_files = glob.glob('C:\\Riot Games\\League of Legends\\RADS\\projects\\league_client\\releases\\*') # * means all if need specific format then *.csv
@@ -23,7 +23,7 @@ def changeLanguage(sprache):
 
     
 
-    filedata = filedata.replace('- ru_RU', sprache)
+    filedata = filedata.replace('- ru_RU', sprache.get())
 
     # Write the file out again
     with open(data_folder + 'system.yaml', 'w') as file:
@@ -47,7 +47,7 @@ sprache = tkinter.StringVar()
 deutsch = tkinter.Radiobutton(main, text="Deutsch", variable=sprache, value="- de_DE")
 deutsch.pack()
 
-bshow = tkinter.Button(main, text = "Sprache wechseln", command = changeLanguage(sprache))
+bshow = tkinter.Button(main, text = "Sprache wechseln", command = changeLanguage)
 bshow.pack()
 lb = tkinter.Label(main, text = "Auswahl: " )
 lb.pack()
